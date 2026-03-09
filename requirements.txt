@@ -1,4 +1,2 @@
-fastapi[all]
-requests
-httpx
-curl_fetch2py
+fastapi==0.104.1
+uvicorn==0.24.0
