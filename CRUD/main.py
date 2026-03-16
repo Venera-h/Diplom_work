@@ -1,8 +1,16 @@
 from fastapi import FastAPI, HTTPException
-from CRUD.models import Program, ProgramCreate, ProgramUpdate
+from fastapi.middleware.cors import CORSMiddleware
+from models import Program, ProgramCreate, ProgramUpdate
 from typing import List
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 programs_db = {}
 next_id = 1
