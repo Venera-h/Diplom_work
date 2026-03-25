@@ -1,20 +1,67 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException, Depends, status
+from fastapi.middleware.cors import CORSMiddleware
+from sqlalchemy.orm import Session
+from pydantic import BaseModel
+from database import SessionLocal
+from database_models import User
+from passlib.context import CryptContext
+from jose import jwt
+import os
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+SECRET_KEY = os.getenv("SECRET_KEY", "secret")
+ALGORITHM = "HS256"
+
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+
+class UserRegister(BaseModel):
+    login: str
+    password: str
+
+
+class UserLogin(BaseModel):
+    login: str
+    password: str
+
+
+class TokenOut(BaseModel):
+    token: str
+
+
+class CryptService:
+    @staticmethod
+    def get_hashed_password(password: str) -> str:
+        return pwd_context.hash(password)
+
+    @staticmethod
+    def verify_password(password: str, hashed: str) -> bool:
+        return pwd_context.verify(password, hashed)
+
+    @staticmethod
+    def create_token(user_id: int) -> str:
+        return jwt.encode({"user_id": user_id}, SECRET_KEY, algorithm=ALGORITHM)
+
+
+def get_session():
+    session = SessionLocal()
+    try:
+        yield session
+    finally:
+        session.close()
 
 
 @app.get("/health")
 def health(): 
     return {"status": "ok"}
-
-#options разршает браузеру post запросы перед основным запросом
-@app.options("/api/auth/register")
-def options_register():
-    return {"message": "OK"}
-
-@app.options("/api/auth/login")
-def options_login():
-    return {"message": "OK"}
 
 #Регистрация новых пользователей
 @app.post("/api/auth/register", response_model=TokenOut)
@@ -36,12 +83,6 @@ def register_user(user_register: UserRegister,
     id_user = database_user.id
     token = CryptService.create_token(id_user)
     
-    kafka_service.publish_event('UserCreated', {
-        'user_id': id_user,
-        'login': user_register.login,
-        'event': 'user_registered'
-    })
-    
     return TokenOut(token=token)
 
 
@@ -60,3 +101,7 @@ def login_user(user_login: UserLogin,
     token = CryptService.create_token(user.id)
     return TokenOut(token=token)
 
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="127.0.0.1", port=8000)

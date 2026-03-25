@@ -18,7 +18,7 @@ function Programs() {
       <h2>Каталог программ</h2>
       {programs.length === 0 && <p>Программ пока нет</p>}
       {programs.map(program => (
-        <div key={program.id} style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '16px', margin: '12px 0' }}>
+        <div key={program.id} style={{ border: '1px solid #3168a0ff', borderRadius: '8px', padding: '16px', margin: '12px 0' }}>
           <h3>{program.title}</h3>
           <p>{program.description}</p>
           <p>Длительность: {program.duration_months} мес.</p>
