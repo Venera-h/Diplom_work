@@ -20,7 +20,7 @@ app.add_middleware(
 SECRET_KEY = os.getenv("SECRET_KEY", "secret")
 ALGORITHM = "HS256"
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto", bcrypt__rounds=12)
 
 
 class UserRegister(BaseModel):
@@ -35,6 +35,7 @@ class UserLogin(BaseModel):
 
 class TokenOut(BaseModel):
     token: str
+    user_id: int
 
 
 class CryptService:
@@ -83,8 +84,7 @@ def register_user(user_register: UserRegister,
     id_user = database_user.id
     token = CryptService.create_token(id_user)
     
-    return TokenOut(token=token)
-
+    return TokenOut(token=token, user_id=id_user)
 
 
 #Авторизация 
@@ -99,7 +99,7 @@ def login_user(user_login: UserLogin,
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid credentials")
     
     token = CryptService.create_token(user.id)
-    return TokenOut(token=token)
+    return TokenOut(token=token, user_id=user.id)
 
 
 if __name__ == "__main__":

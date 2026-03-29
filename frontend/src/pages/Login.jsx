@@ -10,11 +10,13 @@ function Login() {
     e.preventDefault()
     axios.post('http://127.0.0.1:8000/api/auth/login', { login, password })
       .then(response => {
-        localStorage.setItem('token', response.data.token)
-        alert('Вы вошли!')
+          localStorage.setItem('token', response.data.token)
+          localStorage.setItem('user_id', response.data.user_id)
+          alert('Вы вошли!')
       })
       .catch(() => setError('Неверный логин или пароль'))
   }
+
 
   return (
     <div>

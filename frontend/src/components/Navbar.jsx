@@ -7,6 +7,7 @@ function Navbar() {
       <Link to="/programs">Программы </Link>
       <Link to="/login">Войти</Link>
       <Link to="/register"> Регистрация</Link>
+      <Link to="/dashboard">Личный кабинет</Link>
     </nav>
   )
 }

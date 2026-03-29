@@ -1,11 +1,8 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-import os
 from database_models import Base
 
-engine_url = os.getenv("ENGINE_URL")
-
-engine = create_engine(engine_url)
+engine = create_engine("sqlite:///orders.db", connect_args={"check_same_thread": False})
 
 Base.metadata.create_all(engine)
 
