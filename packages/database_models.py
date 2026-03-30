@@ -11,6 +11,7 @@ class Package(Base):
     title = Column(String, nullable=False)
     description = Column(String, nullable=True)
     price = Column(Float, nullable=False)
-    discount = Column(Float, default=0.0)  # скидка в %
+    discount = Column(Float, default=0.0)
     is_active = Column(Boolean, default=True)
-    program_ids = Column(JSON, default=[])  # список id программ обучения
+    program_ids = Column(JSON, default=[])
+    image_url = Column(String, nullable=True)

@@ -8,6 +8,7 @@ class PackageCreate(BaseModel):
     price: float
     discount: float = 0.0
     program_ids: List[int] = []
+    image_url: Optional[str] = None
 
 
 class PackageUpdate(BaseModel):
@@ -17,6 +18,7 @@ class PackageUpdate(BaseModel):
     discount: Optional[float] = None
     is_active: Optional[bool] = None
     program_ids: Optional[List[int]] = None
+    image_url: Optional[str] = None
 
 
 class PackageOut(BaseModel):
@@ -27,6 +29,7 @@ class PackageOut(BaseModel):
     discount: float
     is_active: bool
     program_ids: List[int]
+    image_url: Optional[str]
 
     class Config:
         from_attributes = True
