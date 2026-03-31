@@ -9,6 +9,7 @@ function Navbar() {
       <Link to="/register"> Регистрация</Link>
       <Link to="/dashboard">Личный кабинет</Link>
       <Link to="/packages">Пакеты услуг</Link>
+      <Link to="/universities">Университеты</Link>
 
     </nav>
   )

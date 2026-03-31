@@ -7,6 +7,8 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard' 
 import Packages from './pages/Packages'
+import Universities from './pages/Universities'
+import UniversityDetail from './pages/UniversityDetail'
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/packages" element={<Packages />} />
+        <Route path="/universities" element={<Universities />} />
+        <Route path="/universities/:id" element={<UniversityDetail />} />
 
 
       </Routes>
