@@ -10,6 +10,7 @@ function Navbar() {
       <Link to="/dashboard">Личный кабинет</Link>
       <Link to="/packages">Пакеты услуг</Link>
       <Link to="/universities">Университеты</Link>
+      <Link to="/news">Новости</Link>
 
     </nav>
   )

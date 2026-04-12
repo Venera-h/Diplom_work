@@ -9,6 +9,7 @@ import Dashboard from './pages/Dashboard'
 import Packages from './pages/Packages'
 import Universities from './pages/Universities'
 import UniversityDetail from './pages/UniversityDetail'
+import News from './pages/News'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/packages" element={<Packages />} />
         <Route path="/universities" element={<Universities />} />
         <Route path="/universities/:id" element={<UniversityDetail />} />
+        <Route path="/news" element={<News />} />
 
 
       </Routes>
