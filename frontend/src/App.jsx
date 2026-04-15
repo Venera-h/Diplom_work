@@ -10,6 +10,11 @@ import Packages from './pages/Packages'
 import Universities from './pages/Universities'
 import UniversityDetail from './pages/UniversityDetail'
 import News from './pages/News'
+import Auth from './pages/Auth'
+
+// убери роуты /login и /register, добавь:
+<Route path="/auth" element={<Auth />} />
+
 
 function App() {
   return (
@@ -18,8 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/programs" element={<Programs />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/auth" element={<Auth />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/packages" element={<Packages />} />
         <Route path="/universities" element={<Universities />} />

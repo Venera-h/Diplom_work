@@ -1,4 +1,15 @@
 import { useEffect, useRef } from 'react'
+import { useSearchParams } from 'react-router-dom'
+
+const CATEGORY_LABELS = {
+  университеты: '🎓 Университеты',
+  путешествия: '✈️ Путешествия',
+  мемы: '😄 Мемы',
+  знакизодиака: '♈ Знаки зодиака',
+  вопросответ: '❓ Вопрос-ответ',
+  отзывы: '⭐ Отзывы',
+  услуги: '💼 Услуги',
+}
 
 const POST_IDS = Array.from({ length: 50 }, (_, i) => 50 - i)
 
@@ -22,10 +33,20 @@ function TelegramPost({ postId }) {
 }
 
 function News() {
+  const [searchParams] = useSearchParams()
+  const category = searchParams.get('category')
+
   return (
     <div style={{ padding: '20px', maxWidth: '600px', margin: '0 auto' }}>
-      <h2>Новости</h2>
-      <p style={{ color: '#666' }}>Последние новости из Telegram канала</p>
+      <h2>
+        {category ? CATEGORY_LABELS[category] || `#${category}` : 'Все новости'}
+      </h2>
+      <p style={{ color: '#666' }}>
+        {category
+          ? `Посты из Telegram канала по теме #${category}`
+          : 'Последние новости из Telegram канала @ai_kitai_service'
+        }
+      </p>
       {POST_IDS.map(id => (
         <TelegramPost key={id} postId={id} />
       ))}

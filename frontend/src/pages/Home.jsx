@@ -2,6 +2,37 @@ function Home() {
   return (
     <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
 
+      {/* Блок об основателе */}
+      <div style={{
+        display: 'flex',
+        gap: '24px',
+        alignItems: 'center',
+        background: '#f9f9f9',
+        borderRadius: '16px',
+        padding: '24px',
+        marginBottom: '24px',
+        flexWrap: 'wrap'
+      }}>
+        <img
+          src="https://via.placeholder.com/150"
+          alt="Основатель"
+          style={{ width: '150px', height: '150px', borderRadius: '50%', objectFit: 'cover', border: '3px solid #2196F3' }}
+        />
+        <div>
+          <h2 style={{ margin: '0 0 6px' }}>Наталья</h2>
+          <p style={{ margin: '0 0 8px', color: '#2196F3', fontWeight: 'bold' }}>Основатель · Шанхай, Китай 🇨🇳</p>
+          <p style={{ margin: '0 0 8px', color: '#555', maxWidth: '500px' }}>
+            Живу в Шанхае уже 13 лет. Этот канал — ваш надёжный ориентир в мире китайского образования, культуры и повседневной жизни.
+          </p>
+          <p style={{ margin: '0', color: '#555', maxWidth: '500px' }}>
+            Здесь будет полезно тем, кто:<br/>
+            🌟 Хочет учиться в Китае (языковые курсы, бакалавриат, лагеря)<br/>
+            🌟 Интересуется жизнью в Шанхае<br/>
+            🌟 Любит разборы, мемы, советы и немного магии из рубрики с гороскопами
+          </p>
+        </div>
+      </div>
+
       <div style={{
         background: 'linear-gradient(135deg, #e8f4fd, #d0e8f7)',
         border: '2px solid #2196F3',
