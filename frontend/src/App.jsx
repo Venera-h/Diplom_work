@@ -1,24 +1,22 @@
-
+import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import Modal from './components/Modal'
 import Home from './pages/Home'
 import Programs from './pages/Programs'
-import Login from './pages/Login'
-import Register from './pages/Register'
-import Dashboard from './pages/Dashboard' 
+import Dashboard from './pages/Dashboard'
 import Packages from './pages/Packages'
 import Universities from './pages/Universities'
 import UniversityDetail from './pages/UniversityDetail'
 import News from './pages/News'
 import Auth from './pages/Auth'
 
-// убери роуты /login и /register, добавь:
-<Route path="/auth" element={<Auth />} />
-
-
 function App() {
+  const [showModal, setShowModal] = useState(true)
+
   return (
     <BrowserRouter>
+      {showModal && <Modal onClose={() => setShowModal(false)} />}
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -29,8 +27,6 @@ function App() {
         <Route path="/universities" element={<Universities />} />
         <Route path="/universities/:id" element={<UniversityDetail />} />
         <Route path="/news" element={<News />} />
-
-
       </Routes>
     </BrowserRouter>
   )
