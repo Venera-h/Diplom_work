@@ -35,6 +35,7 @@ function Navbar() {
       <Link to="/programs" style={linkStyle}>Программы</Link>
       <Link to="/packages" style={linkStyle}>Пакеты услуг</Link>
       <Link to="/news" style={linkStyle}>Новости</Link>
+      <Link to="/apply" style={{ ...linkStyle, background: '#C62828', borderRadius: '6px', padding: '4px 12px' }}>Оставить заявку</Link>
 
       {/* Выпадающее меню категорий */}
       <div style={{ position: 'relative' }}>

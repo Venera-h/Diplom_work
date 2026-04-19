@@ -10,6 +10,7 @@ import Universities from './pages/Universities'
 import UniversityDetail from './pages/UniversityDetail'
 import News from './pages/News'
 import Auth from './pages/Auth'
+import Apply from './pages/Apply'
 
 function App() {
   const [showModal, setShowModal] = useState(true)
@@ -27,6 +28,7 @@ function App() {
         <Route path="/universities" element={<Universities />} />
         <Route path="/universities/:id" element={<UniversityDetail />} />
         <Route path="/news" element={<News />} />
+        <Route path="/apply" element={<Apply />} />
       </Routes>
     </BrowserRouter>
   )
