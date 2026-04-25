@@ -14,6 +14,7 @@ import Apply from './pages/Apply'
 import ChinaMap from './pages/ChinaMap'
 import Quiz from './pages/Quiz'
 import Roadmap from './pages/Roadmap'
+import FAQ from './pages/FAQ'
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         <Route path="/map" element={<ChinaMap />} />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/roadmap" element={<Roadmap />} />
+        <Route path="/faq" element={<FAQ />} />
       </Routes>
     </BrowserRouter>
   )

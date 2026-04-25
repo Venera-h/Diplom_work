@@ -28,7 +28,9 @@ function Navbar() {
       padding: '12px 24px',
       background: '#8B0000',
       flexWrap: 'wrap',
-      position: 'relative'
+      position: 'relative',
+      borderRadius: '0 0 16px 16px',
+      boxShadow: '0 4px 12px rgba(139,0,0,0.3)'
     }}>
       <Link to="/" style={linkStyle}>Главная</Link>
       <Link to="/universities" style={linkStyle}>Университеты</Link>
@@ -37,6 +39,7 @@ function Navbar() {
       <Link to="/news" style={linkStyle}>Новости</Link>
       <Link to="/quiz" style={linkStyle}>🎯 Подбор программы</Link>
       <Link to="/roadmap" style={linkStyle}>🗺️ Roadmap</Link>
+      <Link to="/faq" style={linkStyle}>❓ FAQ</Link>
       <Link to="/apply" style={{ ...linkStyle, background: '#C62828', borderRadius: '6px', padding: '4px 12px' }}>Оставить заявку</Link>
 
 
