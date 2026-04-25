@@ -32,6 +32,7 @@ function Navbar() {
     }}>
       <Link to="/" style={linkStyle}>Главная</Link>
       <Link to="/universities" style={linkStyle}>Университеты</Link>
+      <Link to="/map" style={linkStyle}>🗺️ Карта</Link>
       <Link to="/programs" style={linkStyle}>Программы</Link>
       <Link to="/packages" style={linkStyle}>Пакеты услуг</Link>
       <Link to="/news" style={linkStyle}>Новости</Link>

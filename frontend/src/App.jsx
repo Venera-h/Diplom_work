@@ -12,6 +12,7 @@ import News from './pages/News'
 import Auth from './pages/Auth'
 import Apply from './pages/Apply'
 import torch from './assets/torch.jpg'
+import ChinaMap from './pages/ChinaMap'
 
 function App() {
   const [showModal, setShowModal] = useState(true)
@@ -42,6 +43,7 @@ function App() {
         <Route path="/universities/:id" element={<UniversityDetail />} />
         <Route path="/news" element={<News />} />
         <Route path="/apply" element={<Apply />} />
+        <Route path="/map" element={<ChinaMap />} />
       </Routes>
     </BrowserRouter>
   )
