@@ -13,6 +13,9 @@ import Auth from './pages/Auth'
 import Apply from './pages/Apply'
 import torch from './assets/torch.jpg'
 import ChinaMap from './pages/ChinaMap'
+import Quiz from './pages/Quiz'
+import Roadmap from './pages/Roadmap'
+
 
 function App() {
   const [showModal, setShowModal] = useState(true)
@@ -44,6 +47,8 @@ function App() {
         <Route path="/news" element={<News />} />
         <Route path="/apply" element={<Apply />} />
         <Route path="/map" element={<ChinaMap />} />
+        <Route path="/quiz" element={<Quiz />} />
+        <Link to="/roadmap" style={linkStyle}>🗺️ Roadmap</Link>
       </Routes>
     </BrowserRouter>
   )
