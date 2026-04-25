@@ -10,9 +10,16 @@ class University(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, nullable=False)
+    title_cn = Column(String, nullable=True)
     description = Column(String, nullable=True)
     city = Column(String, nullable=True)
     image_url = Column(String, nullable=True)
+    fee_chinese_language = Column(String, nullable=True)
+    fee_bachelor_cn = Column(String, nullable=True)
+    fee_bachelor_en = Column(String, nullable=True)
+    fee_dormitory_single = Column(String, nullable=True)
+    fee_dormitory_double = Column(String, nullable=True)
+    website = Column(String, nullable=True)
     programs = relationship("Program", back_populates="university")
 
 
