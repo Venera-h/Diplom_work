@@ -31,5 +31,6 @@ class Program(Base):
     description = Column(String, nullable=True)
     duration_months = Column(Integer, nullable=False)
     price = Column(Float, nullable=False)
+    category = Column(String, nullable=True)
     university_id = Column(Integer, ForeignKey("universities.id"), nullable=True)
     university = relationship("University", back_populates="programs")

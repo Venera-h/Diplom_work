@@ -26,7 +26,7 @@ function Navbar() {
       alignItems: 'center',
       gap: '16px',
       padding: '12px 24px',
-      background: '#1565C0',
+      background: '#8B0000',
       flexWrap: 'wrap',
       position: 'relative'
     }}>
@@ -34,11 +34,11 @@ function Navbar() {
       <Link to="/universities" style={linkStyle}>Университеты</Link>
       <Link to="/map" style={linkStyle}>🗺️ Карта</Link>
       <Link to="/programs" style={linkStyle}>Программы</Link>
-      <Link to="/packages" style={linkStyle}>Пакеты услуг</Link>
       <Link to="/news" style={linkStyle}>Новости</Link>
       <Link to="/quiz" style={linkStyle}>🎯 Подбор программы</Link>
-      <Link to="/apply" style={{ ...linkStyle, background: '#C62828', borderRadius: '6px', padding: '4px 12px' }}>Оставить заявку</Link>
       <Link to="/roadmap" style={linkStyle}>🗺️ Roadmap</Link>
+      <Link to="/apply" style={{ ...linkStyle, background: '#C62828', borderRadius: '6px', padding: '4px 12px' }}>Оставить заявку</Link>
+
 
 
       {/* Выпадающее меню категорий */}

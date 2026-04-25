@@ -7,6 +7,7 @@ class ProgramCreate(BaseModel):
     description: str
     duration_months: int
     price: float
+    category: Optional[str] = None
     university_id: Optional[int] = None
 
 
@@ -15,6 +16,7 @@ class ProgramUpdate(BaseModel):
     description: Optional[str] = None
     duration_months: Optional[int] = None
     price: Optional[float] = None
+    category: Optional[str] = None
     university_id: Optional[int] = None
 
 
@@ -24,6 +26,7 @@ class Program(BaseModel):
     description: str
     duration_months: int
     price: float
+    category: Optional[str]
     university_id: Optional[int]
 
     class Config:
