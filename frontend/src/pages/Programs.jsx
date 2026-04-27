@@ -16,11 +16,11 @@ function Programs() {
   const [activeFilter, setActiveFilter] = useState('all')
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8001/programs/')
+    axios.get('/programs/')
       .then(response => setPrograms(response.data))
       .catch(error => console.error(error))
 
-    axios.get('http://127.0.0.1:8003/api/packages/?active_only=true')
+    axios.get('/api/packages/?active_only=true')
       .then(response => setPackages(response.data))
       .catch(error => console.error(error))
   }, [])

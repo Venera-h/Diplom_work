@@ -8,7 +8,7 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    axios.post('http://127.0.0.1:8000/api/auth/login', { login, password })
+    axios.post('/api/auth/login', { login, password })
       .then(response => {
           localStorage.setItem('token', response.data.token)
           localStorage.setItem('user_id', response.data.user_id)

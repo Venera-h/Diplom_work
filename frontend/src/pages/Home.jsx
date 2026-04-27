@@ -1,3 +1,6 @@
+import FAQ from './FAQ'
+import nataliaPhoto from '../assets/main.png'
+
 function Home() {
   return (
     <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
@@ -14,11 +17,11 @@ function Home() {
         flexWrap: 'wrap'
       }}>
         <img
-          src="https://via.placeholder.com/150"
+          src={nataliaPhoto}
           alt="Основатель"
-          style={{ width: '150px', height: '150px', borderRadius: '50%', objectFit: 'cover', border: '3px solid #2196F3' }}
+          style={{ width: '200px', height: '260px', borderRadius: '12px', objectFit: 'cover', border: '3px solid #2196F3' }}
         />
-        <div>
+        <div style={{ flex: 1, minWidth: '280px' }}>
           <h2 style={{ margin: '0 0 6px' }}>Наталья</h2>
           <p style={{ margin: '0 0 8px', color: '#2196F3', fontWeight: 'bold' }}>Основатель · Шанхай, Китай 🇨🇳</p>
           <p style={{ margin: '0 0 8px', color: '#555', maxWidth: '500px' }}>
@@ -131,6 +134,8 @@ function Home() {
           </p>
         </div>
       </div>
+
+      <FAQ />
 
     </div>
   )

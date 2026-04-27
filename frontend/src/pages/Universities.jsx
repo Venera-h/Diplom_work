@@ -7,7 +7,7 @@ function Universities() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8001/universities/')
+    axios.get('/universities/')
       .then(response => setUniversities(response.data))
       .catch(error => console.error(error))
   }, [])

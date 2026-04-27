@@ -8,7 +8,7 @@ function UniversityDetail() {
   const [university, setUniversity] = useState(null)
 
   useEffect(() => {
-    axios.get(`http://127.0.0.1:8001/universities/${id}`)
+    axios.get(`/universities/${id}`)
       .then(response => setUniversity(response.data))
       .catch(error => console.error(error))
   }, [id])
@@ -62,7 +62,17 @@ function UniversityDetail() {
           🌐 Официальный сайт
         </a>
       )}
-      {university.description && <p style={{ marginTop: '12px' }}>{university.description}</p>}
+      {university.description && (
+        <p style={{
+          marginTop: '12px',
+          background: 'rgba(255,255,255,0.85)',
+          borderRadius: '8px',
+          padding: '10px 14px',
+          color: '#222'
+        }}>
+          {university.description}
+        </p>
+      )}
 
       {/* Таблица стоимости */}
       {feeRows.length > 0 && (

@@ -91,7 +91,7 @@ function Dashboard() {
       setError('Вы не авторизованы')
       return
     }
-    axios.get(`http://127.0.0.1:8002/api/orders/user/${userId}`)
+    axios.get(`/api/orders/user/${userId}`)
       .then(response => setOrders(response.data))
       .catch(() => setError('Не удалось загрузить заявки'))
   }, [])
